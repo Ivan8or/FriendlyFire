@@ -1,0 +1,4 @@
+name: FriendlyFire
+version: ${project.version}
+main: online.umbcraft.friendlyfire.FriendlyFire
+api-version: 1.16
