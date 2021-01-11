@@ -6,10 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public final class FriendlyFire extends JavaPlugin {
@@ -38,18 +35,14 @@ public final class FriendlyFire extends JavaPlugin {
         for(String team: teams)
             if (a.isPermissionSet(team) &&
                     a.hasPermission(team)) {
-                    System.out.println("player "+a.getName()+" has team "+team);
                 a_teams.add(team);
             }
 
         for(String team: a_teams)
             if (b.isPermissionSet(team) &&
                     b.hasPermission(team)) {
-                System.out.println("player "+b.getName()+" also has team "+team+"! returning true");
                 return true;
             }
-
-        System.out.println("player "+b.getName()+" has none of those teams, returning false");
         return false;
     }
 

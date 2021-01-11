@@ -32,16 +32,11 @@ public class FriendlyFireListener implements Listener {
         if(damager == null)
             return;
 
-        System.out.println("damager is "+damager.getName());
-        System.out.println("victim is "+victim.getName());
-
         if(damager.getUniqueId() == victim.getUniqueId())
             return;
 
         if(plugin.onSameTeam(damager, victim)) {
-            System.out.println("they are on same team!");
             e.setCancelled(true);
         }
-
     }
 }
