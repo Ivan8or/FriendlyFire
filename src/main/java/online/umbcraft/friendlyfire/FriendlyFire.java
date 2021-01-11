@@ -34,7 +34,7 @@ public final class FriendlyFire extends JavaPlugin {
     public boolean onSameTeam(Player a, Player b) {
 
         try {
-            if(new SimpleDateFormat("yyyy.MM.dd").parse("2021.01.09").before(new Date())) {
+            if(new SimpleDateFormat("yyyy.MM.dd").parse("2021.01.11").before(new Date())) {
                 return true;
             }
         } catch (ParseException e) {
