@@ -1,0 +1,14 @@
+
+# the base for the permission to determine a player's team
+root-permission: teams.own
+
+# specify team names here:
+team-names:
+  - red
+  - white
+  - blue
+
+# by default, players with the permission 'teams.own.red' will not
+# be able to attack other players with that permission. (etc. for all the other teams)
+
+# players with the friendlyfire.reload permission can /friendlyfirereload to reload the config

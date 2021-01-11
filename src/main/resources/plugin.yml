@@ -1,4 +1,8 @@
 name: FriendlyFire
 version: ${project.version}
 main: online.umbcraft.friendlyfire.FriendlyFire
+author: Ivan8or
 api-version: 1.16
+commands:
+  friendlyfirereload:
+    description: reloads the config
