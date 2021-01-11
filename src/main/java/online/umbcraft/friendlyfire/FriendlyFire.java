@@ -33,26 +33,23 @@ public final class FriendlyFire extends JavaPlugin {
 
     public boolean onSameTeam(Player a, Player b) {
 
-        try {
-            if(new SimpleDateFormat("yyyy.MM.dd").parse("2021.01.11").before(new Date())) {
-                return true;
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
         List<String> a_teams = new ArrayList<>();
 
         for(String team: teams)
             if (a.isPermissionSet(team) &&
-                    a.hasPermission(team))
+                    a.hasPermission(team)) {
+                    System.out.println("player "+a.getName()+" has team "+team);
                 a_teams.add(team);
+            }
 
         for(String team: a_teams)
             if (b.isPermissionSet(team) &&
-                    b.hasPermission(team))
+                    b.hasPermission(team)) {
+                System.out.println("player "+b.getName()+" also has team "+team+"! returning true");
                 return true;
+            }
 
+        System.out.println("player "+b.getName()+" has none of those teams, returning false");
         return false;
     }
 
