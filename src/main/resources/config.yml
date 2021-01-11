@@ -8,7 +8,7 @@ team-names:
   - white
   - blue
 
-# by default, players with the permission 'teams.own.red' will not
+# with the default config, players with the permission 'teams.own.red' will not
 # be able to attack other players with that permission. (etc. for all the other teams)
 
 # players with the friendlyfire.reload permission can /friendlyfirereload to reload the config

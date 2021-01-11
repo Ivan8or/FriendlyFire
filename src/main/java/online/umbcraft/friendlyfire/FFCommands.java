@@ -15,7 +15,8 @@ public class FFCommands implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender.hasPermission("friendlyfire.reload")) {
+        if(sender.isPermissionSet("friendlyfire.reload")
+        && sender.hasPermission("friendlyfire.reload")) {
             plugin.refreshTeamNames();
             sender.sendMessage(ChatColor.GREEN+"Config reloaded for FriendlyFire!");
             return true;

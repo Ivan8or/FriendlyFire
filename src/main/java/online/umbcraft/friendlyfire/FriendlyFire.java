@@ -13,6 +13,7 @@ public final class FriendlyFire extends JavaPlugin {
 
     FileConfiguration config;
     List<String> teams;
+
     @Override
     public void onEnable() {
 
@@ -20,7 +21,6 @@ public final class FriendlyFire extends JavaPlugin {
         if (!configFile.exists())
             this.saveDefaultConfig();
 
-        System.out.println("getting config!");
         config = this.getConfig();
 
         this.getCommand("friendlyfirereload").setExecutor(new FFCommands(this));
@@ -31,11 +31,13 @@ public final class FriendlyFire extends JavaPlugin {
 
         List<String> a_teams = new ArrayList<>();
         for(String team: teams)
-            if(a.hasPermission(team))
+            if (a.isPermissionSet(team) &&
+                    a.hasPermission(team))
                 a_teams.add(team);
 
         for(String team: a_teams)
-            if(b.hasPermission(team))
+            if (b.isPermissionSet(team) &&
+                    b.hasPermission(team))
                 return true;
 
         return false;
@@ -43,11 +45,11 @@ public final class FriendlyFire extends JavaPlugin {
     public void refreshTeamNames() {
 
         String base = config.getString("root-permission");
-        List<String> teams = config.getStringList("team-names");
+        List<String> p_teams = config.getStringList("team-names");
 
         List<String> toReturn = new ArrayList<>();
 
-        for(String team: teams)
+        for(String team: p_teams)
             toReturn.add(base + "." + team);
 
         teams = toReturn;
